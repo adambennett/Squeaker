@@ -1,0 +1,31 @@
+entity Squeaks {
+    content String required maxlength(255)
+    createdAt Instant
+    likes Long
+    tags String required minlength(2)
+    mentions String required minlength(2)
+    image ImageBlob
+}
+
+entity Utilizer {
+	handle String required minlength(2)
+    followers Long
+    following Long
+}
+
+relationship OneToMany {
+    Utilizer to Squeaks
+}
+relationship ManyToMany{
+	Utilizer{follower} to Utilizer{followed}
+}
+relationship OneToOne{
+	Utilizer{user(login)} to User
+}
+// Use Data Transfer Objects (DTO)
+dto * with mapstruct
+
+// Set service options to all
+service all with serviceClass
+
+paginate Squeaks with infinite-scroll
