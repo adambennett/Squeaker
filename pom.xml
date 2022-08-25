@@ -6,11 +6,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>rocks.zipcode.squeaker</groupId>
-    <artifactId>squeaker-group-project</artifactId>
+    <artifactId>squeaker</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
-    <name>Squeaker Group Project</name>
-    <description>Description for SqueakerGroupProject</description>
+    <name>Squeaker</name>
+    <description>Description for squeaker</description>
 
     <repositories>
         <!-- jhipster-needle-maven-repository -->
@@ -34,7 +34,7 @@
         <maven.build.timestamp.format>yyyyMMddHHmmss</maven.build.timestamp.format>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
-        <start-class>rocks.zipcode.squeaker.SqueakerGroupProjectApp</start-class>
+        <start-class>rocks.zipcode.squeaker.SqueakerApp</start-class>
         <argLine>-Djava.security.egd=file:/dev/./urandom -Xmx1G</argLine>
         <m2e.apt.activation>jdt_apt</m2e.apt.activation>
         <run.addResources>false</run.addResources>
@@ -283,10 +283,6 @@
             <scope>runtime</scope>
         </dependency>
         <!-- Spring Cloud -->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-bootstrap</artifactId>
-        </dependency>
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-data</artifactId>
@@ -582,7 +578,7 @@
                             </platforms>
                         </from>
                         <to>
-                            <image>squeakergroupproject:latest</image>
+                            <image>squeaker:latest</image>
                         </to>
                         <container>
                             <entrypoint>
@@ -818,7 +814,7 @@
                                         <include>package.json</include>
                                         <include>webpack/*.*</include>
                                         <include>tsconfig.json</include>
-                                        <include>.postcss.config.js</include>
+                                        <include>tsconfig.app.json</include>
                                     </includes>
                                     <excludes>
                                         <exclude>**/app/**/service-worker.js</exclude>
@@ -976,9 +972,9 @@
                                 <changeLogFile>${project.basedir}/src/main/resources/config/liquibase/master.xml</changeLogFile>
                                 <diffChangeLogFile>${project.basedir}/src/main/resources/config/liquibase/changelog/${maven.build.timestamp}_changelog.xml</diffChangeLogFile>
                                 <driver>org.h2.Driver</driver>
-                                <url>jdbc:h2:file:${project.build.directory}/h2db/db/squeakergroupproject</url>
+                                <url>jdbc:h2:file:${project.build.directory}/h2db/db/squeaker</url>
                                 <defaultSchemaName></defaultSchemaName>
-                                <username>SqueakerGroupProject</username>
+                                <username>squeaker</username>
                                 <password></password>
                                 <referenceUrl>hibernate:spring:rocks.zipcode.squeaker.domain?dialect=org.hibernate.dialect.H2Dialect&amp;hibernate.physical_naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy&amp;hibernate.implicit_naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy</referenceUrl>
                                 <verbose>true</verbose>
@@ -1076,8 +1072,8 @@
                                 <changeLogFile>${project.basedir}/src/main/resources/config/liquibase/master.xml</changeLogFile>
                                 <diffChangeLogFile>${project.basedir}/src/main/resources/config/liquibase/changelog/${maven.build.timestamp}_changelog.xml</diffChangeLogFile>
                                 <driver>com.mysql.cj.jdbc.Driver</driver>
-                                <url>jdbc:mysql://localhost:3306/SqueakerGroupProject</url>
-                                <defaultSchemaName>SqueakerGroupProject</defaultSchemaName>
+                                <url>jdbc:mysql://localhost:3306/squeaker</url>
+                                <defaultSchemaName>squeaker</defaultSchemaName>
                                 <username>root</username>
                                 <password></password>
                                 <referenceUrl>hibernate:spring:rocks.zipcode.squeaker.domain?dialect=org.hibernate.dialect.MySQL8Dialect&amp;hibernate.physical_naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy&amp;hibernate.implicit_naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy</referenceUrl>
@@ -1200,22 +1196,6 @@
                     </plugin>
                 </plugins>
             </build>
-        </profile>
-        <profile>
-            <!--
-                Profile for tracing requests with Zipkin.
-            -->
-            <id>zipkin</id>
-            <dependencies>
-                <dependency>
-                    <groupId>org.springframework.cloud</groupId>
-                    <artifactId>spring-cloud-starter-sleuth</artifactId>
-                </dependency>
-                <dependency>
-                    <groupId>org.springframework.cloud</groupId>
-                    <artifactId>spring-cloud-sleuth-zipkin</artifactId>
-                </dependency>
-            </dependencies>
         </profile>
         <profile>
             <!--

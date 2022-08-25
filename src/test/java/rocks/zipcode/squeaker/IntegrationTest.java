@@ -6,7 +6,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.DirtiesContext;
-import rocks.zipcode.squeaker.SqueakerGroupProjectApp;
+import rocks.zipcode.squeaker.SqueakerApp;
 import rocks.zipcode.squeaker.config.AsyncSyncConfiguration;
 import rocks.zipcode.squeaker.config.EmbeddedSQL;
 
@@ -15,7 +15,7 @@ import rocks.zipcode.squeaker.config.EmbeddedSQL;
  */
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
-@SpringBootTest(classes = { SqueakerGroupProjectApp.class, AsyncSyncConfiguration.class })
+@SpringBootTest(classes = { SqueakerApp.class, AsyncSyncConfiguration.class })
 @EmbeddedSQL
 @DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_CLASS)
 public @interface IntegrationTest {

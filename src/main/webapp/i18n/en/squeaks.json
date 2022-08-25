@@ -1,0 +1,31 @@
+{
+  "squeakerApp": {
+    "squeaks": {
+      "home": {
+        "title": "Squeaks",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Squeaks",
+        "createOrEditLabel": "Create or edit a Squeaks",
+        "notFound": "No Squeaks found"
+      },
+      "created": "A new Squeaks is created with identifier {{ param }}",
+      "updated": "A Squeaks is updated with identifier {{ param }}",
+      "deleted": "A Squeaks is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Squeaks {{ id }}?"
+      },
+      "detail": {
+        "title": "Squeaks"
+      },
+      "id": "ID",
+      "content": "Content",
+      "createdAt": "Created At",
+      "likes": "Likes",
+      "image": "Image",
+      "video": "Video",
+      "tags": "Tags",
+      "mentions": "Mentions",
+      "utilizer": "Utilizer"
+    }
+  }
+}

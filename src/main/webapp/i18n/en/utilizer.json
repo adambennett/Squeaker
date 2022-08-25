@@ -1,0 +1,28 @@
+{
+  "squeakerApp": {
+    "utilizer": {
+      "home": {
+        "title": "Utilizers",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Utilizer",
+        "createOrEditLabel": "Create or edit a Utilizer",
+        "notFound": "No Utilizers found"
+      },
+      "created": "A new Utilizer is created with identifier {{ param }}",
+      "updated": "A Utilizer is updated with identifier {{ param }}",
+      "deleted": "A Utilizer is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Utilizer {{ id }}?"
+      },
+      "detail": {
+        "title": "Utilizer"
+      },
+      "id": "ID",
+      "handle": "Handle",
+      "followers": "Followers",
+      "following": "Following",
+      "user": "User",
+      "squeaks": "Squeaks"
+    }
+  }
+}

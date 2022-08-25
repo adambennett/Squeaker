@@ -1,0 +1,38 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="mentions">
+      <h2 data-cy="mentionsDetailsHeading"><span jhiTranslate="squeakerApp.mentions.detail.title">Mentions</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ mentions.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="squeakerApp.mentions.handle">Handle</span></dt>
+        <dd>
+          <span>{{ mentions.handle }}</span>
+        </dd>
+        <dt><span jhiTranslate="squeakerApp.mentions.squeaks">Squeaks</span></dt>
+        <dd>
+          <div *ngIf="mentions.squeaks">
+            <a [routerLink]="['/squeaks', mentions.squeaks.id, 'view']">{{ mentions.squeaks?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/mentions', mentions.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

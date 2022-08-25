@@ -1,0 +1,25 @@
+{
+  "squeakerApp": {
+    "mentions": {
+      "home": {
+        "title": "Mentions",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Mentions",
+        "createOrEditLabel": "Create or edit a Mentions",
+        "notFound": "No Mentions found"
+      },
+      "created": "A new Mentions is created with identifier {{ param }}",
+      "updated": "A Mentions is updated with identifier {{ param }}",
+      "deleted": "A Mentions is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Mentions {{ id }}?"
+      },
+      "detail": {
+        "title": "Mentions"
+      },
+      "id": "ID",
+      "handle": "Handle",
+      "squeaks": "Squeaks"
+    }
+  }
+}
