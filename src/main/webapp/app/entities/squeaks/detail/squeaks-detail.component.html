@@ -1,0 +1,62 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="squeaks">
+      <h2 data-cy="squeaksDetailsHeading"><span jhiTranslate="squeakerApp.squeaks.detail.title">Squeaks</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ squeaks.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="squeakerApp.squeaks.content">Content</span></dt>
+        <dd>
+          <span>{{ squeaks.content }}</span>
+        </dd>
+        <dt><span jhiTranslate="squeakerApp.squeaks.createdAt">Created At</span></dt>
+        <dd>
+          <span>{{ squeaks.createdAt | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="squeakerApp.squeaks.likes">Likes</span></dt>
+        <dd>
+          <span>{{ squeaks.likes }}</span>
+        </dd>
+        <dt><span jhiTranslate="squeakerApp.squeaks.image">Image</span></dt>
+        <dd>
+          <div *ngIf="squeaks.image">
+            <a (click)="openFile(squeaks.image, squeaks.imageContentType)">
+              <img [src]="'data:' + squeaks.imageContentType + ';base64,' + squeaks.image" style="max-width: 100%" alt="squeaks image" />
+            </a>
+            {{ squeaks.imageContentType }}, {{ byteSize(squeaks.image) }}
+          </div>
+        </dd>
+        <dt><span jhiTranslate="squeakerApp.squeaks.video">Video</span></dt>
+        <dd>
+          <div *ngIf="squeaks.video">
+            <a (click)="openFile(squeaks.video, squeaks.videoContentType)" jhiTranslate="entity.action.open">Open</a>
+            {{ squeaks.videoContentType }}, {{ byteSize(squeaks.video) }}
+          </div>
+        </dd>
+        <dt><span jhiTranslate="squeakerApp.squeaks.utilizer">Utilizer</span></dt>
+        <dd>
+          <div *ngIf="squeaks.utilizer">
+            <a [routerLink]="['/utilizer', squeaks.utilizer.id, 'view']">{{ squeaks.utilizer?.handle }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/squeaks', squeaks.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

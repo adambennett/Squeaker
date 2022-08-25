@@ -1,0 +1,44 @@
+{
+  "applications": ["squeaker"],
+  "changelogDate": "20220825182832",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "utilizer",
+  "fields": [
+    {
+      "fieldName": "handle",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "minlength"],
+      "fieldValidateRulesMinlength": "2"
+    },
+    {
+      "fieldName": "followers",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "following",
+      "fieldType": "Long"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Utilizer",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "login",
+      "otherEntityName": "user",
+      "ownerSide": true,
+      "relationshipName": "user",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "squeaks",
+      "otherEntityRelationshipName": "utilizer",
+      "relationshipName": "squeaks",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "serviceClass"
+}

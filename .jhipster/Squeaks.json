@@ -1,0 +1,62 @@
+{
+  "applications": ["squeaker"],
+  "changelogDate": "20220825182829",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "squeaks",
+  "fields": [
+    {
+      "fieldName": "content",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "255"
+    },
+    {
+      "fieldName": "createdAt",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "likes",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "image",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "image"
+    },
+    {
+      "fieldName": "video",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "any"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Squeaks",
+  "pagination": "infinite-scroll",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "id",
+      "otherEntityName": "tags",
+      "otherEntityRelationshipName": "squeaks",
+      "relationshipName": "tags",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityField": "id",
+      "otherEntityName": "mentions",
+      "otherEntityRelationshipName": "squeaks",
+      "relationshipName": "mentions",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityField": "handle",
+      "otherEntityName": "utilizer",
+      "otherEntityRelationshipName": "squeaks",
+      "relationshipName": "utilizer",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}
