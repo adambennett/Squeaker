@@ -50,7 +50,7 @@
           <td>{{ mentions.handle }}</td>
           <td>
             <div *ngIf="mentions.squeaks">
-              <a [routerLink]="['/squeaks', mentions.squeaks.id, 'view']">{{ mentions.squeaks?.id }}</a>
+              <a [routerLink]="['/squeaks', mentions.squeaks.id, 'view']">{{ mentions.squeaks.id }}</a>
             </div>
           </td>
           <td class="text-end">

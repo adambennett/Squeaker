@@ -19,12 +19,11 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import rocks.zipcode.squeaker.config.Constants;
-import rocks.zipcode.squeaker.domain.User;
+import rocks.zipcode.squeaker.domain.*;
 import rocks.zipcode.squeaker.repository.UserRepository;
 import rocks.zipcode.squeaker.security.AuthoritiesConstants;
-import rocks.zipcode.squeaker.service.MailService;
-import rocks.zipcode.squeaker.service.UserService;
-import rocks.zipcode.squeaker.service.dto.AdminUserDTO;
+import rocks.zipcode.squeaker.service.*;
+import rocks.zipcode.squeaker.service.dto.*;
 import rocks.zipcode.squeaker.web.rest.errors.BadRequestAlertException;
 import rocks.zipcode.squeaker.web.rest.errors.EmailAlreadyUsedException;
 import rocks.zipcode.squeaker.web.rest.errors.LoginAlreadyUsedException;
@@ -87,10 +86,13 @@ public class UserResource {
 
     private final MailService mailService;
 
-    public UserResource(UserService userService, UserRepository userRepository, MailService mailService) {
+    private final UtilizerService utilizerService;
+
+    public UserResource(UserService userService, UserRepository userRepository, MailService mailService, UtilizerService utilizerService) {
         this.userService = userService;
         this.userRepository = userRepository;
         this.mailService = mailService;
+        this.utilizerService = utilizerService;
     }
 
     /**
@@ -119,6 +121,7 @@ public class UserResource {
             throw new EmailAlreadyUsedException();
         } else {
             User newUser = userService.createUser(userDTO);
+            Utilizer utilizer = utilizerService.createUtilizer(new UtilizerDTO());
             mailService.sendCreationEmail(newUser);
             return ResponseEntity
                 .created(new URI("/api/admin/users/" + newUser.getLogin()))

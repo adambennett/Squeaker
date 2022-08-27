@@ -120,4 +120,40 @@ public class UtilizerService {
         log.debug("Request to delete Utilizer : {}", id);
         utilizerRepository.deleteById(id);
     }
+
+    public Utilizer createUtilizer(UtilizerDTO utilizerDTO) {
+        return null;
+        /* User user = new User();
+        user.setLogin(uutilizerDTO.getLogin().toLowerCase());
+        user.setFirstName(uutilizerDTO.getFirstName());
+        user.setLastName(uutilizerDTO.getLastName());
+        if (uutilizerDTO.getEmail() != null) {
+            user.setEmail(uutilizerDTO.getEmail().toLowerCase());
+        }
+        user.setImageUrl(uutilizerDTO.getImageUrl());
+        if (uutilizerDTO.getLangKey() == null) {
+            user.setLangKey(Constants.DEFAULT_LANGUAGE); // default language
+        } else {
+            user.setLangKey(uutilizerDTO.getLangKey());
+        }
+        String encryptedPassword = passwordEncoder.encode(RandomUtil.generatePassword());
+        user.setPassword(encryptedPassword);
+        user.setResetKey(RandomUtil.generateResetKey());
+        user.setResetDate(Instant.now());
+        user.setActivated(true);
+        if (uutilizerDTO.getAuthorities() != null) {
+            Set<Authority> authorities = uutilizerDTO
+                .getAuthorities()
+                .stream()
+                .map(authorityRepository::findById)
+                .filter(Optional::isPresent)
+                .map(Optional::get)
+                .collect(Collectors.toSet());
+            user.setAuthorities(authorities);
+        }
+        userRepository.save(user);
+        this.clearUserCaches(user);
+        log.debug("Created Information for User: {}", user);
+        return user;*/
+    }
 }

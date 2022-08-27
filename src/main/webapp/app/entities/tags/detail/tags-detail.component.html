@@ -21,7 +21,7 @@
         <dt><span jhiTranslate="squeakerApp.tags.squeaks">Squeaks</span></dt>
         <dd>
           <div *ngIf="tags.squeaks">
-            <a [routerLink]="['/squeaks', tags.squeaks.id, 'view']">{{ tags.squeaks?.id }}</a>
+            <a [routerLink]="['/squeaks', tags.squeaks.id, 'view']">{{ tags.squeaks.id }}</a>
           </div>
         </dd>
       </dl>

@@ -45,7 +45,7 @@
         <dt><span jhiTranslate="squeakerApp.squeaks.utilizer">Utilizer</span></dt>
         <dd>
           <div *ngIf="squeaks.utilizer">
-            <a [routerLink]="['/utilizer', squeaks.utilizer.id, 'view']">{{ squeaks.utilizer?.handle }}</a>
+            <a [routerLink]="['/utilizer', squeaks.utilizer.id, 'view']">{{ squeaks.utilizer.handle }}</a>
           </div>
         </dd>
       </dl>

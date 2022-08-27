@@ -50,7 +50,7 @@
           <td>{{ tags.hashtag }}</td>
           <td>
             <div *ngIf="tags.squeaks">
-              <a [routerLink]="['/squeaks', tags.squeaks.id, 'view']">{{ tags.squeaks?.id }}</a>
+              <a [routerLink]="['/squeaks', tags.squeaks.id, 'view']">{{ tags.squeaks.id }}</a>
             </div>
           </td>
           <td class="text-end">

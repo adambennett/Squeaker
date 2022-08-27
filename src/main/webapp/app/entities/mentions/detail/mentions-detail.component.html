@@ -21,7 +21,7 @@
         <dt><span jhiTranslate="squeakerApp.mentions.squeaks">Squeaks</span></dt>
         <dd>
           <div *ngIf="mentions.squeaks">
-            <a [routerLink]="['/squeaks', mentions.squeaks.id, 'view']">{{ mentions.squeaks?.id }}</a>
+            <a [routerLink]="['/squeaks', mentions.squeaks.id, 'view']">{{ mentions.squeaks.id }}</a>
           </div>
         </dd>
       </dl>
